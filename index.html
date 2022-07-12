@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      font-family: Arial, Helvetica;
+      color: palevioletred;
+      margin: 0;
+    }
+    .width {
+      max-width: 60vw;
+    }
+    body {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      /* background-image: url(./pic1.jpg); */
+      /* apply blur in background */
+      background-size: cover;
+      transition: all;
+      duration: 1s;
+      background-position: center;
+      backdrop-filter: blur(5px);
+    }
+  </style>
+  <body>
+    <figure><img src="./pic1.jpg" alt="pic1" class="width" /></figure>
+  </body>
+  <script>
+    const imageArr = ['pic1.jpg', 'pic2.jpg']
+    const image = document.querySelector('img')
+    const body = document.querySelector('body')
+    let n = 0
+    //change the image in set intervals
+    setInterval(() => {
+      if (n < imageArr.length) {
+        image.src = `./${imageArr[n]}`
+        body.background = `./${imageArr[n]}`
+        if (n === imageArr.length - 1) {
+          n = 0
+        } else {
+          n++
+        }
+      }
+    }, 1000)
+  </script>
+</html>
